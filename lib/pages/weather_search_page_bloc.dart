@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cubit_bloc_tutorial/bloc/bloc_weather_bloc.dart';
 import 'package:flutter_cubit_bloc_tutorial/bloc/bloc_weather_event.dart';
-import 'package:flutter_cubit_bloc_tutorial/cubit/weather_cubit.dart';
+import 'package:flutter_cubit_bloc_tutorial/connectivity/connectivity_page.dart';
 import 'package:flutter_cubit_bloc_tutorial/cubit/weather_state.dart';
 import 'package:flutter_cubit_bloc_tutorial/data/model/weather.dart';
 
@@ -17,6 +17,19 @@ class _WeatherSearchPageBState extends State<WeatherSearchPageB> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Weather Search",),
+        actions: <Widget>[
+          IconButton(
+            onPressed: (){
+              Navigator.of(context,).push(
+                MaterialPageRoute(builder: (_) => ConnectivityPage(),),
+              );
+            },
+            icon: Icon(
+              Icons.arrow_forward_ios,
+              size: 24.0,
+            ),
+          ),
+        ],
       ),
       body: Container(
         width: double.infinity,
